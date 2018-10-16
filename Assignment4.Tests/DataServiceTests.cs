@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 
 namespace Assignment4.Tests
@@ -15,7 +16,7 @@ namespace Assignment4.Tests
             Assert.Null(category.Name);
             Assert.Null(category.Description);
         }
-
+        
         [Fact]
         public void GetAllCategories_NoArgument_ReturnsAllCategories()
         {
@@ -24,7 +25,7 @@ namespace Assignment4.Tests
             Assert.Equal(8, categories.Count);
             Assert.Equal("Beverages", categories.First().Name);
         }
-
+        
         [Fact]
         public void GetCategory_ValidId_ReturnsCategoryObject()
         {
@@ -32,7 +33,7 @@ namespace Assignment4.Tests
             var category = service.GetCategory(1);
             Assert.Equal("Beverages", category.Name);
         }
-
+        /*
         [Fact]
         public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
         {
@@ -89,10 +90,10 @@ namespace Assignment4.Tests
             var service = new DataService();
             var result = service.UpdateCategory(-1, "UpdatedName", "UpdatedDescription");
             Assert.False(result);
-        }
+        }*/
 
         /* products */
-
+        /*
         [Fact]
         public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
         {
@@ -132,10 +133,10 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", products.First().Name);
             Assert.Equal("Beverages", products.First().Category.Name);
             Assert.Equal("Lakkalikööri", products.Last().Name);
-        }
+        }*/
 
         /* orders */
-        [Fact]
+        /*[Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
             var order = new Order();
@@ -163,11 +164,11 @@ namespace Assignment4.Tests
             var service = new DataService();
             var orders = service.GetOrders();
             Assert.Equal(830, orders.Count);
-        }
+        }*/
 
 
         /* orderdetails */
-        [Fact]
+        /*[Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
             var orderDetails = new OrderDetails();
@@ -200,6 +201,6 @@ namespace Assignment4.Tests
             Assert.Equal("1996-07-04", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(14, orderDetails.First().UnitPrice);
             Assert.Equal(12, orderDetails.First().Quantity);
-        }
+        }*/
     }
 }
