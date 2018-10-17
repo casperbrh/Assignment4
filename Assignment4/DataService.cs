@@ -7,7 +7,9 @@ namespace Assignment4
 {
     public class DataService
     {
-        #region - Category Tests
+        /// <summary>
+        /// Category Tests
+        /// </summary>
         public List<Category> GetCategories()
         {
             using (var db = new NorthwindContex())
@@ -69,9 +71,10 @@ namespace Assignment4
                 return true;
             }
         }
-        #endregion - Category Tests
-
-        #region - Product Tests
+        
+        /// <summary>
+        /// Product Tests
+        /// </summary>
         public Product GetProduct(int productId)
         {
             using (var db = new NorthwindContex())
@@ -106,6 +109,8 @@ namespace Assignment4
                 return products;
             }
         }
-        #endregion - Product Tests
+
+
+
     }
 }
