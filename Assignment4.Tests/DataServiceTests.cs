@@ -8,7 +8,7 @@ namespace Assignment4.Tests
     {
         /* Categories */
 
-        /* [Fact]
+         [Fact]
         public void Category_Object_HasIdNameAndDescription()
         {
             var category = new Category();
@@ -107,7 +107,7 @@ namespace Assignment4.Tests
             Assert.Null(product.QuantityPerUnit);
             Assert.Equal(0, product.UnitsInStock);
         }
-
+        /*
         [Fact]
         public void GetProduct_ValidId_ReturnsProductWithCategory()
         {
@@ -116,17 +116,17 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", product.Name);
             Assert.Equal("Beverages", product.Category.Name);
         }
-
+        
         [Fact]
         public void GetProduct_NameSubString_ReturnsProductsThatMachesTheSubString()
         {
             var service = new DataService();
             var products = service.GetProductByName("ant");
-            Assert.Equal(3, products.Count);
+            Assert.Equal(3, products.Count); //Have no clue what this means.
             Assert.Equal("Chef Anton's Cajun Seasoning", products.First().Name);
             Assert.Equal("Guaran� Fant�stica", products.Last().Name);
         }
-
+        */
         /* [Fact]
         public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
         {
@@ -136,10 +136,10 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", products.First().Name);
             Assert.Equal("Beverages", products.First().Category.Name);
             Assert.Equal("Lakkalik��ri", products.Last().Name);
-        }
+        }*/
 
         /* orders */
-        /* [Fact]
+         [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
             var order = new Order();
@@ -150,7 +150,7 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipName);
             Assert.Null(order.ShipCity);
         }
-        /*
+       
         [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()
         {
@@ -159,19 +159,19 @@ namespace Assignment4.Tests
             Assert.Equal(3, order.OrderDetails.Count);
             Assert.Equal("Queso Cabrales", order.OrderDetails.First().Product.Name);
             Assert.Equal("Dairy Products", order.OrderDetails.First().Product.Category.Name);
-        }
-        
+        } 
+        /*
         [Fact]
         public void GetOrders()
         {
             var service = new DataService();
             var orders = service.GetOrders();
             Assert.Equal(830, orders.Count);
-        }
-        */
+        } */
+        
 
         /* orderdetails */
-        /* [Fact]
+         [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
             var orderDetails = new OrderDetails();
@@ -204,11 +204,11 @@ namespace Assignment4.Tests
             Assert.Equal("1996-07-04", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(14, orderDetails.First().UnitPrice);
             Assert.Equal(12, orderDetails.First().Quantity);
-<<<<<<< Updated upstream
-        } */
-=======
-        }
-        */
->>>>>>> Stashed changes
+
+        } 
+
+        }*/
+        
+
     }
 }

@@ -98,31 +98,38 @@ namespace Assignment4
                 return product;
             }
         }
-
+        
         public List<Product> GetProductByName(String productName)
         {
             using (var db = new NorthwindContex())
             {
-                var products = db.Products
-                    .Where(x => x.Name.Contains(productName))
-                    .OrderBy(x => x.Name).ToList();
-                //Console.WriteLine(products);
-                    return products;
+                var product = db.Products
+                    .Include(x => x.Category)
+                    .FirstOrDefault(x => x.Id == productId);
+                return product;
             }
         }
-
-       /* public List<Product> GetProductByCategory(int categoryId)
+        
+        /* public List<Product> GetProductByCategory(int categoryId)
+         {
+             using (var db = new NorthwindContex())
+             {
+                 var products = db.Products
+                     .Include(x => x.Category)
+                     .Where(x => x.Category.Id == categoryId)
+                     .ToList();
+                 return products;
+             }
+         }*/
+         /*
+        public List<Order> GetOrder(int Id)
         {
             using (var db = new NorthwindContex())
             {
-                var products = db.Products
-                    .Include(x => x.Category)
-                    .Where(x => x.Category.Id == categoryId)
-                    .ToList();
-                return products;
+                return db.Orders.ToList();
             }
-        }*/
 
+        }*/
 
 
     }
