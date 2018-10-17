@@ -70,15 +70,19 @@ namespace Assignment4
 
         public bool UpdateCategory(int categoryId, String name, String description)
         {
-            using (var db = new NorthwindContex())
+            try
             {
-                var category = db.Categories.FirstOrDefault(x => x.Id == categoryId);
+                using (var db = new NorthwindContex())
+                {
+                    var category = db.Categories.FirstOrDefault(x => x.Id == categoryId);
 
-                category.Name = name;
-                category.Description = description;
-                db.SaveChanges();
-                return true;
+                    category.Name = name;
+                    category.Description = description;
+                    db.SaveChanges();
+                    return true;
+                }
             }
+            catch (Exception) { } return false;
         }
         
         /// <summary>

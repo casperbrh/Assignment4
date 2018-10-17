@@ -28,6 +28,6 @@ namespace Assignment4
         public int UnitsInStock { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
 
-
+        
     }
 }
