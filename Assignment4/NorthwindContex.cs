@@ -12,7 +12,8 @@ namespace Assignment4
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -25,11 +26,37 @@ namespace Assignment4
         {
             base.OnModelCreating(modelBuilder);
 
+            // Map class property: Category
             modelBuilder.Entity<Category>().ToTable("categories");
             modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
             modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
             modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
-        }
+
+            // Map class property: Product
+            modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("ProductId");
+            modelBuilder.Entity<Product>().Property(x => x.Name).HasColumnName("ProductName");
+            modelBuilder.Entity<Product>().Property(x => x.QuantityPerUnit).HasColumnName("QuantityUnit");
+        
+            // Map class property: Order 
+            modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("OrderId");
+            modelBuilder.Entity<Order>().Property(x => x.Date).HasColumnName("OrderDate");
+            modelBuilder.Entity<Order>().Property(x => x.Required).HasColumnName("RequiredDate");
+
+            // Map class property: Order Details
+            modelBuilder.Entity<OrderDetails>().HasKey(x => new { x.OrderId, x.ProductId });
+
+            modelBuilder.Entity<OrderDetails>()
+                .HasOne(x => x.Order)
+                .WithMany(x => x.OrderDetails)
+                .HasForeignKey(x => x.OrderId);
+
+            modelBuilder.Entity<OrderDetails>()
+                .HasOne(x => x.Product)
+                .WithMany(x => x.OrderDetails)
+                .HasForeignKey(x => x.ProductId);
+
+            
+       }
 
         /*public static readonly LoggerFactory MyLoggerFactory
             = new LoggerFactory(new[]

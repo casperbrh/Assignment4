@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment4
 {
     public class DataService
     {
-
+        #region - Category Tests
         public List<Category> GetCategories()
         {
             using (var db = new NorthwindContex())
@@ -49,12 +50,62 @@ namespace Assignment4
                 db.SaveChanges();
                 return delCat;
             }
-
         }
 
-        public object UpdateCategory(int id, string v1, string v2)
+       /*  public object UpdateCategory(int id, string v1, string v2)
         {
             throw new NotImplementedException();
+        }*/
+
+        public bool UpdateCategory(int categoryId, String name, String description)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var category = db.Categories.FirstOrDefault(x => x.Id == categoryId);
+
+                category.Name = name;
+                category.Description = description;
+                db.SaveChanges();
+                return true;
+            }
         }
+        #endregion - Category Tests
+
+        #region - Product Tests
+        public Product GetProduct(int productId)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var product = db.Products
+                    .Include(x => x.Category)
+                    .FirstOrDefault(x => x.Id == productId);
+                return product;
+            }
+        }
+
+        public List<Product> GetProductByName(String productName)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var products = db.Products
+                    .Where(x => x.Name.Contains(productName))
+                    .OrderBy(x => x.Name)
+                    .ToList();
+                return products;
+            }
+        }
+
+        public List<Product> GetProductByCategory(int categoryId)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var products = db.Products
+                    .Include(x => x.Category)
+                    .Where(x => x.Category.Id == categoryId)
+                    .ToList();
+                return products;
+            }
+        }
+        #endregion - Product Tests
     }
 }
