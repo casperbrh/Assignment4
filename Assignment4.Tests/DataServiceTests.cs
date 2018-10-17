@@ -47,7 +47,7 @@ namespace Assignment4.Tests
             service.DeleteCategory(category.Id);
         }
 
-      /*  [Fact]
+        [Fact]
         public void DeleteCategory_ValidId_RemoveTheCategory()
         {
             //This should pass if the Assert.true error can be fixed --Jonas
@@ -60,7 +60,7 @@ namespace Assignment4.Tests
             Assert.Null(category);
         }
 
-       /* [Fact]
+        [Fact]
         public void DeleteCategory_InvalidId_ReturnsFalse()
             //should work same issue as above--Jonas
         {
@@ -69,7 +69,7 @@ namespace Assignment4.Tests
             Assert.False(result);
         }
 
-      /*  [Fact]
+        [Fact]
         public void UpdateCategory_NewNameAndDescription_UpdateWithNewValues()
         {
             var service = new DataService();
@@ -93,10 +93,10 @@ namespace Assignment4.Tests
             var service = new DataService();
             var result = service.UpdateCategory(-1, "UpdatedName", "UpdatedDescription");
             Assert.False(result);
-        }*/
+        }
 
         /* products */
-        /*
+        
         [Fact]
         public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
         {
@@ -124,7 +124,7 @@ namespace Assignment4.Tests
             var products = service.GetProductByName("ant");
             Assert.Equal(3, products.Count);
             Assert.Equal("Chef Anton's Cajun Seasoning", products.First().Name);
-            Assert.Equal("Guaraná Fantástica", products.Last().Name);
+            Assert.Equal("Guaranï¿½ Fantï¿½stica", products.Last().Name);
         }
 
         [Fact]
@@ -135,11 +135,11 @@ namespace Assignment4.Tests
             Assert.Equal(12, products.Count);
             Assert.Equal("Chai", products.First().Name);
             Assert.Equal("Beverages", products.First().Category.Name);
-            Assert.Equal("Lakkalikööri", products.Last().Name);
-        }*/
+            Assert.Equal("Lakkalikï¿½ï¿½ri", products.Last().Name);
+        }
 
         /* orders */
-        /*[Fact]
+        [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
             var order = new Order();
@@ -167,11 +167,11 @@ namespace Assignment4.Tests
             var service = new DataService();
             var orders = service.GetOrders();
             Assert.Equal(830, orders.Count);
-        }*/
+        }
 
 
         /* orderdetails */
-        /*[Fact]
+        [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
             var orderDetails = new OrderDetails();
@@ -204,6 +204,6 @@ namespace Assignment4.Tests
             Assert.Equal("1996-07-04", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(14, orderDetails.First().UnitPrice);
             Assert.Equal(12, orderDetails.First().Quantity);
-        }*/
+        }
     }
 }

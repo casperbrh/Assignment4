@@ -51,5 +51,10 @@ namespace Assignment4
             }
 
         }
+
+        public object UpdateCategory(int id, string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -15,8 +15,13 @@ namespace Assignment4
 
         [Column("productname")]
         public string Name { get; set; }
+
         [Column("categoryid")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public double UnitPrice { get; set; }
+        public String QuantityPerUnit { get; set; }
+        public int UnitsInStock { get; set; }
+        public List<OrderDetails> OrderDetails { get; set; }
     }
 }

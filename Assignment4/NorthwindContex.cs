@@ -16,7 +16,7 @@ namespace Assignment4
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=postgres;pwd=postgres");
+            optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=northwind;pwd=northwind");
             //optionsBuilder.UseLoggerFactory(MyLoggerFactory)
                 //.EnableSensitiveDataLogging();
         }
@@ -26,7 +26,7 @@ namespace Assignment4
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().ToTable("categories");
-            //modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
+            modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
             modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
             modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
         }
