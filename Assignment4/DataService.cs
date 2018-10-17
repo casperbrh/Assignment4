@@ -63,7 +63,7 @@ namespace Assignment4
             catch (Exception) { } return false;
         }
 
-       /*  public object UpdateCategory(int id, string v1, string v2)
+        /* public object UpdateCategory(int id, string v1, string v2)
         {
             throw new NotImplementedException();
         }*/
@@ -111,7 +111,7 @@ namespace Assignment4
             }
         }
 
-        public List<Product> GetProductByCategory(int categoryId)
+       /* public List<Product> GetProductByCategory(int categoryId)
         {
             using (var db = new NorthwindContex())
             {
@@ -121,7 +121,7 @@ namespace Assignment4
                     .ToList();
                 return products;
             }
-        }
+        }*/
 
 
 

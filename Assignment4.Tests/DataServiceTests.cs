@@ -8,7 +8,7 @@ namespace Assignment4.Tests
     {
         /* Categories */
 
-        [Fact]
+        /* [Fact]
         public void Category_Object_HasIdNameAndDescription()
         {
             var category = new Category();
@@ -127,7 +127,7 @@ namespace Assignment4.Tests
             Assert.Equal("Guaran� Fant�stica", products.Last().Name);
         }
 
-        [Fact]
+        /* [Fact]
         public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
         {
             var service = new DataService();
@@ -139,7 +139,7 @@ namespace Assignment4.Tests
         }
 
         /* orders */
-        [Fact]
+        /* [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
             var order = new Order();
@@ -171,7 +171,7 @@ namespace Assignment4.Tests
         */
 
         /* orderdetails */
-        [Fact]
+        /* [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
             var orderDetails = new OrderDetails();
@@ -204,6 +204,11 @@ namespace Assignment4.Tests
             Assert.Equal("1996-07-04", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(14, orderDetails.First().UnitPrice);
             Assert.Equal(12, orderDetails.First().Quantity);
+<<<<<<< Updated upstream
         } */
+=======
+        }
+        */
+>>>>>>> Stashed changes
     }
 }
