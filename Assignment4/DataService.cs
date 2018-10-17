@@ -105,9 +105,9 @@ namespace Assignment4
             {
                 var products = db.Products
                     .Where(x => x.Name.Contains(productName))
-                    .OrderBy(x => x.Name)
-                    .ToList();
-                return products;
+                    .OrderBy(x => x.Name).ToList();
+                //Console.WriteLine(products);
+                    return products;
             }
         }
 
