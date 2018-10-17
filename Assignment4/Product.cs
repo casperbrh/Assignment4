@@ -19,9 +19,15 @@ namespace Assignment4
         [Column("categoryid")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        [Column("unitprice")]
         public double UnitPrice { get; set; }
         public String QuantityPerUnit { get; set; }
+
+        [Column("unitsinstock")]
         public int UnitsInStock { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
+
+
     }
 }

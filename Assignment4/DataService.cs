@@ -42,16 +42,25 @@ namespace Assignment4
             }
 
         }
-        public Category DeleteCategory(int id)
+        public bool DeleteCategory(int id)
         {
-            using (var db = new NorthwindContex())
+            try
             {
-                var delCat = new Category() { Id = id };
-                db.Categories.Attach(delCat);
-                db.Categories.Remove(delCat);
-                db.SaveChanges();
-                return delCat;
+                using (var db = new NorthwindContex())
+                {
+                    var delCat = new Category() { Id = id };
+                    db.Categories.Attach(delCat);
+                    db.Categories.Remove(delCat);
+                    db.SaveChanges();
+                    if (delCat != null)
+                    {
+
+                        return true;
+                    }
+                    else return false;
+                }
             }
+            catch (Exception) { } return false;
         }
 
        /*  public object UpdateCategory(int id, string v1, string v2)
