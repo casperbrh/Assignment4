@@ -92,12 +92,13 @@ namespace Assignment4
         {
             using (var db = new NorthwindContex())
             {
-                var product = db.Products.Find(productId);
-                product.Category = db.Categories.FirstOrDefault(x => x.Id == product.CategoryId);
+                var product = db.Products
+                    .Include(x => x.Category)
+                    .FirstOrDefault(x => x.Id == productId);
                 return product;
             }
         }
-       
+        
         public List<Product> GetProductByName(String productName)
         {
             using (var db = new NorthwindContex())
@@ -106,7 +107,7 @@ namespace Assignment4
                 
                 return product.ToList();             
             }
-        }
+        }*/
         
          public List<Product> GetProductByCategory(int categoryId)
          {
@@ -118,31 +119,22 @@ namespace Assignment4
                      .ToList();
                  return products;
              }
-         }
-
-        public List<Order> GetOrders()
+         }*/
+         /*
+        public List<Order> GetOrder(int Id)
         {
             using (var db = new NorthwindContex())
             {
                 return db.Orders.ToList();
             }
+
+        }*/
+
+                product.Category = db.Categories.FirstOrDefault(x => x.Id == product.CategoryId);
+                return product;
+            }
         }
-        
-      /* public List<Order> GetOrder(int id)
-       {
-           using (var db = new NorthwindContex())
-           {
-                var Order = new Order();
-                var ordernr = db.Orders
-                    .Include(x => x.OrderDetails)
-                   // .Include(x => x.OrderDetails.)
-                    .Where(x => x.Id == id).ToList();
-
-                return ordernr;
-           }
-
-       }*/
-
+        } */
 
     }
 }

@@ -12,10 +12,10 @@ namespace Assignment4
         [Column("orderid")]
         public int Id { get; set; }
 
-        [Column("orderdate")]
+        [Column("date")]
         public DateTime Date { get; set; }
 
-        [Column("requireddate")]
+        [Column("required")]
         public DateTime Required { get; set; }
 
         [Column("shipname")]
