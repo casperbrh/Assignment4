@@ -6,16 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment4
-{   [Table("order")]
+{   [Table("orders")]
     public class Order
     {
         [Column("orderid")]
         public int Id { get; set; }
 
-        [Column("date")]
+        [Column("orderdate")]
         public DateTime Date { get; set; }
 
-        [Column("required")]
+        [Column("requireddate")]
         public DateTime Required { get; set; }
 
         [Column("shipname")]

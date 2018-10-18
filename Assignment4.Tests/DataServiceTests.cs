@@ -152,16 +152,16 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipCity);
         }
        
-      /* [Fact]
+       [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()
         {
             var service = new DataService();
-            //var order = new Order();
+            
             var order = service.GetOrder(10248);
             Assert.Equal(3, order.OrderDetails.Count);
             Assert.Equal("Queso Cabrales", order.OrderDetails.First().Product.Name);
             Assert.Equal("Dairy Products", order.OrderDetails.First().Product.Category.Name);
-        } */
+        } 
         
         [Fact]
         public void GetOrders()
@@ -185,8 +185,8 @@ namespace Assignment4.Tests
             Assert.Equal(0.0, orderDetails.Quantity);
             Assert.Equal(0.0, orderDetails.Discount);
         }
-        /*
-        [Fact]
+        
+        /*[Fact]
         public void GetOrderDetailByOrderId_ValidId_ReturnsProductNameUnitPriceAndQuantity()
         {
             var service = new DataService();

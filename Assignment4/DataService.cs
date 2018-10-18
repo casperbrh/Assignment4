@@ -84,7 +84,7 @@ namespace Assignment4
             }
             catch (Exception) { } return false;
         }
-        
+
         /// <summary>
         /// Product Tests
         /// </summary>
@@ -98,29 +98,29 @@ namespace Assignment4
                 return product;
             }
         }
-        
+
         public List<Product> GetProductByName(String productName)
         {
             using (var db = new NorthwindContex())
-            {             
+            {
                 var product = db.Products.Where(x => x.Name.ToLower().Contains(productName.ToLower()));
-                
-                return product.ToList();             
+
+                return product.ToList();
             }
         }
-        
-         public List<Product> GetProductByCategory(int categoryId)
-         {
-             using (var db = new NorthwindContex())
-             {
-                 var products = db.Products
-                     .Include(x => x.Category)
-                     .Where(x => x.Category.Id == categoryId)
-                     .ToList();
-                 return products;
-             }
-         }
-        
+
+        public List<Product> GetProductByCategory(int categoryId)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var products = db.Products
+                    .Include(x => x.Category)
+                    .Where(x => x.Category.Id == categoryId)
+                    .ToList();
+                return products;
+            }
+        }
+
         public List<Order> GetOrders()
         {
             using (var db = new NorthwindContex())
@@ -128,16 +128,28 @@ namespace Assignment4
                 return db.Orders.ToList();
             }
         }
-         
+
         public List<Order> GetOrder(int Id)
         {
             using (var db = new NorthwindContex())
             {
-                
+
                 return db.Orders.ToList();
             }
 
         }
+
+        /*public List<OrderDetails> GetOrderDetailsByProductId(int id)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var orderDetail = db.OrderDetails
+                    .Include(x => x.Product)
+                    .Include()
+            }
+        }*/
+
+            
 
                
      }

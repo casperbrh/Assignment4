@@ -26,10 +26,10 @@ namespace Assignment4
         [Column("discount")]
         public double Discount { get; set; }
 
-        [Column("product")]
+        //[Column("product")]
         public Product Product { get; set; }
 
-        [Column("order")]
+       // [Column("order")]
         public Order Order { get; set; }
         
 
