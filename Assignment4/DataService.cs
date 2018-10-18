@@ -107,7 +107,7 @@ namespace Assignment4
                 
                 return product.ToList();             
             }
-        }*/
+        }
         
          public List<Product> GetProductByCategory(int categoryId)
          {
@@ -119,22 +119,29 @@ namespace Assignment4
                      .ToList();
                  return products;
              }
-         }*/
-         /*
-        public List<Order> GetOrder(int Id)
+         }
+        
+        public List<Order> GetOrders()
         {
             using (var db = new NorthwindContex())
             {
                 return db.Orders.ToList();
             }
-
-        }*/
-
-                product.Category = db.Categories.FirstOrDefault(x => x.Id == product.CategoryId);
-                return product;
-            }
         }
-        } */
+         
+        public List<Order> GetOrder(int Id)
+        {
+            using (var db = new NorthwindContex())
+            {
+                
+                return db.Orders.ToList();
+            }
 
-    }
-}
+        }
+
+               
+     }
+} 
+
+   // }
+//}
