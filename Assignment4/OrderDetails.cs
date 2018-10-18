@@ -10,7 +10,7 @@ namespace Assignment4
     public class OrderDetails
     {   
 
-        [Column("orderId")]
+        [Column("orderid")]
         public int OrderId { get; set; }
       
 

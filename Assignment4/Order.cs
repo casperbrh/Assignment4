@@ -9,13 +9,13 @@ namespace Assignment4
 {   [Table("order")]
     public class Order
     {
-        [Column("id")]
+        [Column("orderid")]
         public int Id { get; set; }
 
-        [Column("date")]
+        [Column("orderdate")]
         public DateTime Date { get; set; }
 
-        [Column("required")]
+        [Column("requireddate")]
         public DateTime Required { get; set; }
 
         [Column("shipname")]

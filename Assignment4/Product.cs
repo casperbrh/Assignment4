@@ -16,12 +16,17 @@ namespace Assignment4
         [Column("productname")]
         public string Name { get; set; }
 
+        [Column("supplierid")]
+        public int SupplierId { get; set;}
+
         [Column("categoryid")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
         [Column("unitprice")]
         public double UnitPrice { get; set; }
+
+        [Column("quantityperunit")]
         public String QuantityPerUnit { get; set; }
 
         [Column("unitsinstock")]

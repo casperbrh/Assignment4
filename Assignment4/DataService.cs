@@ -92,25 +92,23 @@ namespace Assignment4
         {
             using (var db = new NorthwindContex())
             {
-                var product = db.Products
-                    .Include(x => x.Category)
-                    .FirstOrDefault(x => x.Id == productId);
+                var product = db.Products.Find(productId);
+                product.Category = db.Categories.FirstOrDefault(x => x.Id == product.CategoryId);
                 return product;
             }
         }
-        
+       
         public List<Product> GetProductByName(String productName)
         {
             using (var db = new NorthwindContex())
-            {
-                var product = db.Products
-                    .Include(x => x.Category)
-                    .FirstOrDefault(x => x.Id == productId);
-                return product;
+            {             
+                var product = db.Products.Where(x => x.Name.ToLower().Contains(productName.ToLower()));
+                
+                return product.ToList();             
             }
         }
         
-        /* public List<Product> GetProductByCategory(int categoryId)
+         public List<Product> GetProductByCategory(int categoryId)
          {
              using (var db = new NorthwindContex())
              {
@@ -120,16 +118,30 @@ namespace Assignment4
                      .ToList();
                  return products;
              }
-         }*/
-         /*
-        public List<Order> GetOrder(int Id)
+         }
+
+        public List<Order> GetOrders()
         {
             using (var db = new NorthwindContex())
             {
                 return db.Orders.ToList();
             }
+        }
+        
+      /* public List<Order> GetOrder(int id)
+       {
+           using (var db = new NorthwindContex())
+           {
+                var Order = new Order();
+                var ordernr = db.Orders
+                    .Include(x => x.OrderDetails)
+                   // .Include(x => x.OrderDetails.)
+                    .Where(x => x.Id == id).ToList();
 
-        }*/
+                return ordernr;
+           }
+
+       }*/
 
 
     }

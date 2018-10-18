@@ -107,7 +107,7 @@ namespace Assignment4.Tests
             Assert.Null(product.QuantityPerUnit);
             Assert.Equal(0, product.UnitsInStock);
         }
-        /*
+        
         [Fact]
         public void GetProduct_ValidId_ReturnsProductWithCategory()
         {
@@ -124,10 +124,10 @@ namespace Assignment4.Tests
             var products = service.GetProductByName("ant");
             Assert.Equal(3, products.Count); //Have no clue what this means.
             Assert.Equal("Chef Anton's Cajun Seasoning", products.First().Name);
-            Assert.Equal("Guaran� Fant�stica", products.Last().Name);
+            Assert.Equal("Guaraná Fantástica", products.Last().Name);
         }
-        */
-        /* [Fact]
+        
+         [Fact]
         public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
         {
             var service = new DataService();
@@ -135,8 +135,8 @@ namespace Assignment4.Tests
             Assert.Equal(12, products.Count);
             Assert.Equal("Chai", products.First().Name);
             Assert.Equal("Beverages", products.First().Category.Name);
-            Assert.Equal("Lakkalik��ri", products.Last().Name);
-        }*/
+            Assert.Equal("Lakkalikööri", products.Last().Name);
+        }
 
         /* orders */
          [Fact]
@@ -151,7 +151,7 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipCity);
         }
        
-        [Fact]
+       /* [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()
         {
             var service = new DataService();
@@ -159,15 +159,15 @@ namespace Assignment4.Tests
             Assert.Equal(3, order.OrderDetails.Count);
             Assert.Equal("Queso Cabrales", order.OrderDetails.First().Product.Name);
             Assert.Equal("Dairy Products", order.OrderDetails.First().Product.Category.Name);
-        } 
-        /*
+        } */
+        
         [Fact]
         public void GetOrders()
         {
             var service = new DataService();
             var orders = service.GetOrders();
             Assert.Equal(830, orders.Count);
-        } */
+        } 
         
 
         /* orderdetails */
