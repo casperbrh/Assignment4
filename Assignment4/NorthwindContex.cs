@@ -33,9 +33,9 @@ namespace Assignment4
             modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
 
             // Map class property: Product
-            modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("ProductId");
-            modelBuilder.Entity<Product>().Property(x => x.Name).HasColumnName("ProductName");
-            modelBuilder.Entity<Product>().Property(x => x.QuantityPerUnit).HasColumnName("QuantityUnit");
+            modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("productid");
+            modelBuilder.Entity<Product>().Property(x => x.Name).HasColumnName("productname");
+            modelBuilder.Entity<Product>().Property(x => x.QuantityPerUnit).HasColumnName("quantityperunit");
         
             // Map class property: Order 
             modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("OrderId");
