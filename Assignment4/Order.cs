@@ -9,12 +9,12 @@ namespace Assignment4
 {   [Table("order")]
     public class Order
     {
-        [Column("id")]
+        [Column("orderid")]
         public int Id { get; set; }
-
+    
         [Column("date")]
         public DateTime Date { get; set; }
-
+        
         [Column("required")]
         public DateTime Required { get; set; }
 

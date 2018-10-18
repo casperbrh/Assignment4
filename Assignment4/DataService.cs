@@ -122,16 +122,34 @@ namespace Assignment4
                  return products;
              }
          }*/
-         /*
-        public List<Order> GetOrder(int Id)
+         
+        public Order GetOrder(int Id)
         {
             using (var db = new NorthwindContex())
             {
-                return db.Orders.ToList();
+
+
+                return db.Orders
+                    .Include(x => x.OrderDetails)
+                    .ThenInclude(x => x.Product)
+                    .ThenInclude(x => x.Category)
+                    .FirstOrDefault(x => x.Id == Id);
+                   
             }
 
         }
-        */
+        /*   public Product GetProduct(int productId)
+        {
+            using (var db = new NorthwindContex())
+            {
+                var product = db.Products.Find(productId);
+
+
+                product.Category = db.Categories.FirstOrDefault(x => x.Id == product.CategoryId);
+                return product;
+            }
+        }
+        } */
 
     }
 }
