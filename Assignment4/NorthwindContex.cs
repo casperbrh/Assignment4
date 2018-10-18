@@ -26,7 +26,7 @@ namespace Assignment4
         {
             base.OnModelCreating(modelBuilder);
 
-            // Map class property: Category
+            // Map class property: Category //this comment is a comment
             modelBuilder.Entity<Category>().ToTable("categories");
             modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
             modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
