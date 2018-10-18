@@ -186,7 +186,7 @@ namespace Assignment4.Tests
             Assert.Equal(0.0, orderDetails.Discount);
         }
         
-        /*[Fact]
+        [Fact]
         public void GetOrderDetailByOrderId_ValidId_ReturnsProductNameUnitPriceAndQuantity()
         {
             var service = new DataService();
@@ -209,7 +209,7 @@ namespace Assignment4.Tests
 
         } 
 
-        }*/
+       // }
         
 
     }

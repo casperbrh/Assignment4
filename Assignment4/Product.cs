@@ -15,7 +15,7 @@ namespace Assignment4
 
         [Column("productname")]
         public string Name { get; set; }
-
+        
         [Column("supplierid")]
         public int SupplierId { get; set;}
 

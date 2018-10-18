@@ -128,30 +128,44 @@ namespace Assignment4
                 return db.Orders.ToList();
             }
         }
-
-        public List<Order> GetOrder(int Id)
+        //not done
+        public Order GetOrder(int id)
         {
             using (var db = new NorthwindContex())
             {
 
-                return db.Orders.ToList();
+                return db.Orders.Include(x => x.OrderDetails).
+                    ThenInclude(x =>x.Product).
+                    ThenInclude(x => x.Category)
+                    .FirstOrDefault(x =>x.Id == id);
             }
 
         }
 
-        /*public List<OrderDetails> GetOrderDetailsByProductId(int id)
+        public List<OrderDetails> GetOrderDetailsByOrderId(int orderid)
+        {
+            using(var db = new NorthwindContex())
+            {
+                return db.OrderDetails
+                    .Include(x => x.Order)
+                    .Where(x => x.OrderId == orderid)
+                    .ToList();
+            }
+        }
+
+        public List<OrderDetails> GetOrderDetailsByProductId(int id)
         {
             using (var db = new NorthwindContex())
             {
-                var orderDetail = db.OrderDetails
-                    .Include(x => x.Product)
-                    .Include()
+                return db.OrderDetails
+                    .Include(x => x.Order)
+                    .Where(x => x.ProductId == id).ToList();
             }
-        }*/
+        }
 
-            
 
-               
+
+
      }
 } 
 

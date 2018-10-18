@@ -24,7 +24,8 @@ namespace Assignment4
         [Column("shipcity")]
         public String ShipCity { get; set; }
 
-        [Column("orderdetails")]
+       
         public List<OrderDetails> OrderDetails { get; set; }
+        
     }
 }
