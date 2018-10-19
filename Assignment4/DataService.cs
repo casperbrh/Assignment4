@@ -147,19 +147,22 @@ namespace Assignment4
             using(var db = new NorthwindContex())
             {
                 return db.OrderDetails
-                    .Include(x => x.Order)
+                    .Include(x => x.Product)
                     .Where(x => x.OrderId == orderid)
                     .ToList();
             }
         }
+       
 
-        public List<OrderDetails> GetOrderDetailsByProductId(int id)
+            public List<OrderDetails> GetOrderDetailsByProductId(int id)
         {
             using (var db = new NorthwindContex())
             {
                 return db.OrderDetails
                     .Include(x => x.Order)
-                    .Where(x => x.ProductId == id).ToList();
+                    .Where(x => x.ProductId == id)
+                    .OrderBy(x => x.Order.Date)
+                    .ToList();
             }
         }
 
