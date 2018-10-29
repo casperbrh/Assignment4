@@ -17,7 +17,7 @@ namespace Assignment4
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=postgres;pwd=RucRuc13");
+            optionsBuilder.UseNpgsql("host=localhost;db=northwind1;uid=postgres;pwd=postgres");
             //optionsBuilder.UseLoggerFactory(MyLoggerFactory)
                 //.EnableSensitiveDataLogging();
         }
@@ -38,13 +38,22 @@ namespace Assignment4
             modelBuilder.Entity<Product>().Property(x => x.QuantityPerUnit).HasColumnName("quantityperunit");
         
             // Map class property: Order 
-            modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("OrderId");
-            modelBuilder.Entity<Order>().Property(x => x.Date).HasColumnName("OrderDate");
-            modelBuilder.Entity<Order>().Property(x => x.Required).HasColumnName("RequiredDate");
+            modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("orderid");
+            modelBuilder.Entity<Order>().Property(x => x.Date).HasColumnName("orderdate");
+            modelBuilder.Entity<Order>().Property(x => x.Required).HasColumnName("requireddate");
 
+            //  not ship date becasue of null. shipname? and shipcity  
             // Map class property: Order Details
+            modelBuilder.Entity<OrderDetails>().ToTable("orderdetails");
             modelBuilder.Entity<OrderDetails>().HasKey(x => new { x.OrderId, x.ProductId });
+            modelBuilder.Entity<OrderDetails>().Property(x => x.OrderId).HasColumnName("orderid");
+            modelBuilder.Entity<OrderDetails>().Property(x => x.ProductId).HasColumnName("productid");
+            modelBuilder.Entity<OrderDetails>().Property(x => x.UnitPrice).HasColumnName("unitprice");
+            modelBuilder.Entity<OrderDetails>().Property(x => x.Quantity).HasColumnName("quantity");
+            modelBuilder.Entity<OrderDetails>().Property(x => x.Discount).HasColumnName("discount");
+            
 
+            
             modelBuilder.Entity<OrderDetails>()
                 .HasOne(x => x.Order)
                 .WithMany(x => x.OrderDetails)
@@ -53,10 +62,10 @@ namespace Assignment4
             modelBuilder.Entity<OrderDetails>()
                 .HasOne(x => x.Product)
                 .WithMany(x => x.OrderDetails)
-                .HasForeignKey(x => x.ProductId);
+                .HasForeignKey(x => x.ProductId); 
 
-            
-       }
+
+        }
 
         /*public static readonly LoggerFactory MyLoggerFactory
             = new LoggerFactory(new[]

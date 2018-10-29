@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Assignment4
 {   [Table("orderdetails")]
     public class OrderDetails
-    {   
+    {
 
-        [Column("orderId")]
+        [Column("orderid")]
         public int OrderId { get; set; }
-      
+
 
         [Column("productid")]
         public int ProductId { get; set; }
@@ -26,11 +26,13 @@ namespace Assignment4
         [Column("discount")]
         public double Discount { get; set; }
 
-        [Column("product")]
+        //[Column("product")]
         public Product Product { get; set; }
 
-        [Column("order")]
+        // [Column("order")]
         public Order Order { get; set; }
+
+        
 
 
     }

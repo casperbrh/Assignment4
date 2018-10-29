@@ -15,6 +15,9 @@ namespace Assignment4
 
         [Column("productname")]
         public string Name { get; set; }
+        
+        [Column("supplierid")]
+        public int SupplierId { get; set;}
 
         [Column("categoryid")]
         public int CategoryId { get; set; }
@@ -22,6 +25,8 @@ namespace Assignment4
 
         [Column("unitprice")]
         public double UnitPrice { get; set; }
+
+        [Column("quantityperunit")]
         public String QuantityPerUnit { get; set; }
 
         [Column("unitsinstock")]
